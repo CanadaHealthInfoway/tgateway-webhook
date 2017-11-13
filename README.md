@@ -16,7 +16,7 @@ The ***config.json*** file contains the server configuration:
 - **contextPathDown** - context path used to simulate the situation when the server is down
 - **apiId** - *api_id* to be echoed back in the notification response
 
-To run the server:
+To run the server, use:
 
 ```
 npm install
