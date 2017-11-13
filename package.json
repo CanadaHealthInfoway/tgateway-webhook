@@ -1,0 +1,23 @@
+{
+  "name": "tgateway-demo-webhook",
+  "version": "1.0.0",
+  "description": "NodeJS demo WebHook for Infoway's Terminology Gateway",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "fs": "0.0.1-security",
+    "request": "^2.83.0"
+  },
+  "author": "Sang Jun Ahn <sjahn@infoway-inforoute.ca>",
+  "contributors": [
+    "Tib Onu <tonu@infoway-inforoute.ca>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myfortune/coalabear.git"
+  },
+  "license": "(MIT OR Apache-2.0)"
+}

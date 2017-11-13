@@ -1,0 +1,8 @@
+{
+	"port": 3500,
+	"gatewayBaseUrl": "https://termapi-uat.infoway-inforoute.ca/rest/v1",
+	"downloadDir": "C:\\Users\\tonu\\Desktop\\DemoSandbox\\Downloads",
+	"endPoint": "/processNotification",
+	"endPointDown": "/processNotificationDown",
+	"apiId": "AQ83Ebw2i0F"
+}
