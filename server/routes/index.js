@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
 });
 
 // processing the notification body
-router.post(CONFIG.endPoint, (req, res) => {
+router.post(CONFIG.contextPath, (req, res) => {
     console.log(util.format("============RECEIVED A WEBHOOK POST REQUEST============"));
     console.log("\n");
     console.log(`Processing: ${JSON.stringify(req.body)}`);
@@ -63,7 +63,7 @@ router.post(CONFIG.endPoint, (req, res) => {
     }    
 });
 
-if (CONFIG.endPointDown) {
+if (CONFIG.contextPathDown) {
     router.post(CONFIG.endPointDown, (req, res) => {
         msg = "We are under Maintenance.. Try back later...";
         postResult(400, msg, res);
