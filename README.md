@@ -1,5 +1,5 @@
 # tgateway-webhook
-###Demo implementation of a Terminology Gateway WebHook
+##Demo implementation of a Terminology Gateway WebHook
 
 This project contains a NodeJS implementation for a simple HTTP server that serves as a WebHook endpoint for Infoway's Terminology Gateway. 
 
