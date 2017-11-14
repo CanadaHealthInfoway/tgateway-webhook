@@ -64,7 +64,7 @@ router.post(CONFIG.contextPath, (req, res) => {
 });
 
 if (CONFIG.contextPathDown) {
-    router.post(CONFIG.endPointDown, (req, res) => {
+    router.post(CONFIG.contextPathDown, (req, res) => {
         msg = "We are under Maintenance.. Try back later...";
         postResult(400, msg, res);
     });
