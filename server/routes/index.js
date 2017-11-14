@@ -17,7 +17,6 @@ const fs = require('fs');
 const request = require("request");
 
 //constants
-const defaultGatewayBaseUrl = CONFIG.gatewayBaseUrl || DEFAULT_GATEWAY_BASE_URL;
 const downloadDir = CONFIG.downloadDir || DEFAULT_DOWNLOAD_DIRECTORY;
 
 //index page
@@ -35,7 +34,7 @@ router.post(CONFIG.contextPath, (req, res) => {
     console.log(`Processing: ${JSON.stringify(req.body)}`);
     console.log("\n");
     
-    let gatewayBaseUrl = req.base_url || defaultGatewayBaseUrl;
+    let gatewayBaseUrl = CONFIG.gatewayBaseUrl || req.body.base_url || DEFAULT_GATEWAY_BASE_URL;
 
     let msg = "";
     if (!req.body.api_id || (req.body.api_id !== CONFIG.apiId)) {
@@ -64,7 +63,7 @@ router.post(CONFIG.contextPath, (req, res) => {
 });
 
 if (CONFIG.contextPathDown) {
-    router.post(CONFIG.endPointDown, (req, res) => {
+    router.post(CONFIG.contextPathDown, (req, res) => {
         msg = "We are under Maintenance.. Try back later...";
         postResult(400, msg, res);
     });
@@ -72,7 +71,11 @@ if (CONFIG.contextPathDown) {
 
 // Retrieve artifact data from the Terminology Gateway server.
 function downloadFile(gatewayBaseUrl, target, format, res) {
-    let filename = util.format(FILE_PATH_FORMAT, downloadDir, target.type,  target.name, format);
+    // trim trailing slashes from the base URL
+    const regExp = new RegExp("/+$");
+    gatewayBaseUrl = gatewayBaseUrl.replace(regExp, "");
+    
+    let filename = util.format(FILE_PATH_FORMAT, downloadDir, target.type,  target.name, format); 
     let downloadUrl = util.format(DOWNLOAD_URL_FORMAT, gatewayBaseUrl, target.type, target.id, format);
     console.log(util.format("sending download request to: %s", downloadUrl));
     request(downloadUrl)

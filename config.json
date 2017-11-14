@@ -1,8 +1,9 @@
 {
 	"port": 3500,
-	"gatewayBaseUrl": "https://termapi-uat.infoway-inforoute.ca/rest/v1",
 	"downloadDir": "C:\\Users\\tonu\\Desktop\\DemoSandbox\\Downloads",
 	"contextPath": "/processNotification",
 	"contextPathDown": "/processNotificationDown",
-	"apiId": "AQ83Ebw2i0F"
+	"apiId": "AQ83Ebw2i0F",
+	"## Uncomment the gatewayBaseUrl if you want to force the environment to be used for content downloads": "",
+	"## gatewayBaseUrl": "https://termapi-uat.infoway-inforoute.ca/rest/v1"
 }
